@@ -6,6 +6,7 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import androidx.annotation.DrawableRes
 import java.util.*
 
 /**
@@ -65,6 +66,8 @@ class GraphicsVerifyView:View{
          seekVerSuccessColor = typeStyle.getColor(R.styleable.GraphicsVerifyView_seekVerSuccessColor,Color.GREEN) //滑块验证成功的颜色
          seekArrowDefaultColor = typeStyle.getColor(R.styleable.GraphicsVerifyView_seekArrowDefaultColor,Color.GRAY) //滑块箭头默认颜色
          seekArrowTouchColor = typeStyle.getColor(R.styleable.GraphicsVerifyView_seekArrowTouchColor,Color.WHITE) //滑块箭头触摸颜色
+         imgSrc = typeStyle.getResourceId(R.styleable.GraphicsVerifyView_imgSrc,R.drawable.ic_img)
+         typeStyle.recycle()
       }
    }
 
@@ -76,6 +79,15 @@ class GraphicsVerifyView:View{
       //随机初始化默认角度(值的范围为-80~-280)，匹配的时候与滑块旋转的角度相加如果在误差范围内就验证成功
       val randomValue = Random().nextInt(201) + 80f
       defaultDegrees = -randomValue
+   }
+
+   fun setImgSrc(@DrawableRes imgSrc:Int){
+      this.imgSrc = imgSrc
+      bitmap = if(width > 0){
+         Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.resources, imgSrc),width,width,true)
+      }else{
+         BitmapFactory.decodeResource(context.resources, imgSrc)
+      }
    }
 
    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
