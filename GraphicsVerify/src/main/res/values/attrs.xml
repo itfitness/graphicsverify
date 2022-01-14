@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="GraphicsVerifyView">
+<!--       滑块描边宽度-->
+        <attr name="seekBorderWidth" format="dimension"/>
+<!--       允许的误差角度-->
+        <attr name="offsetDegrees" format="float"/>
+<!--        滑块背景颜色-->
+        <attr name="seekBgColor" format="color"/>
+<!--        滑块默认颜色-->
+        <attr name="seekDefaultColor" format="color"/>
+<!--        滑块描边颜色-->
+        <attr name="seekBorderColor" format="color"/>
+<!--        滑块触摸的颜色-->
+        <attr name="seekTouchColor" format="color"/>
+<!--        滑块验证失败的颜色-->
+        <attr name="seekVerFailColor" format="color"/>
+<!--        滑块验证成功的颜色-->
+        <attr name="seekVerSuccessColor" format="color"/>
+<!--        滑块箭头默认颜色-->
+        <attr name="seekArrowDefaultColor" format="color"/>
+<!--        滑块箭头触摸颜色-->
+        <attr name="seekArrowTouchColor" format="color"/>
+<!--        展示的图片-->
+        <attr name="imgSrc" format="reference"/>
+    </declare-styleable>
+</resources>
